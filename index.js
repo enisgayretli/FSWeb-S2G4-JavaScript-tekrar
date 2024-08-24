@@ -36,8 +36,8 @@ const sayilar = [
 */
 
 //Örneğin çözümü:
-function KareninAlani(kenaruzunlugu) {
-  return kenaruzunlugu * kenaruzunlugu;
+function KareninAlani(kenarUzunlugu) {
+  return kenarUzunlugu * kenarUzunlugu; // Math.pow(kenarUzunlugu, 2);
 }
 
 /* (Oto test yok) Yukarıdaki KareninAlani fonksiyonunu kenar uzunluğu = 10 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -50,8 +50,9 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinCevresi(cemberinYaricapi) {
+  const cemberinCevresi = 2 * pi * cemberinYaricapi;
+  return cemberinCevresi;
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -64,8 +65,9 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(cemberinYaricapi, pi) {
+  const cemberinAlani = pi * Math.pow(cemberinYaricapi, 2);
+  return cemberinAlani;
 }
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -97,6 +99,34 @@ let ucetambolunenler,
   siralisayilar,
   tekraredensayilar;
 
+enkucuk = sayilar[0];// 20
+enbuyuk = sayilar[0]; // 20
+ucetambolunenler = [];
+// [20, 10, 30, 50, 3]
+// 20, enkucuk = 1.
+for(let i = 1; i < sayilar.length; i++){
+  // 10
+  if(enkucuk > sayilar[i]){
+    enkucuk = sayilar[i]; // 10
+  }
+
+  // 20 < 30
+  if(enbuyuk < sayilar[i]){
+    enbuyuk = sayilar[i]; // 30
+  }
+}
+
+sayilar.forEach(sayi => {
+  if(sayi % 3 === 0){
+    ucetambolunenler.push(sayi);
+  }
+});
+
+ucebolunenlerintoplami = ucetambolunenler.reduce((toplam, currentSayi)=> {
+  return toplam + currentSayi;
+}, 0);
+
+besyuzdenkucuksayilar = sayilar.filter(sayi => sayi < 500);
 // 3a çözümü
 
 /* kodlar buraya */
